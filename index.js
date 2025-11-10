@@ -39,6 +39,23 @@ app.post('/thingamabobs', (req, res) => {
     send(newThingy)
 })
 
+app.put('/thingamabobs/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const { name, price } = req.body;
+
+    const thingamabob = thingamabobs.find(c => c.id === id);
+
+    if (!thingamabob) {
+        return res.status(404).send({ error: "Client not found. Check your thingamabobs id." });
+    }
+
+    if (name) thingamabob.name = name;
+    if (price) thingamabob.price = price;
+
+    res.send(thingamabob);
+});
+
+
 app.delete('/thingamabobs/:id', (req, res) => {
     if (typeof thingamabobs[req.params.id - 1] === 'undefined')
     {
