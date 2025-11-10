@@ -11,9 +11,7 @@ const thingamabobs = [
     {id: 3, name: "sapakas", price: 2000}
 ]
 
-const clients = [
-    {id: 1, name:"tester", email: "tester@gmail.com"}
-]
+
 
 app.get('/thingamabobs', (req, res) => {res.send(thingamabobs)})
 
@@ -67,6 +65,9 @@ app.delete('/thingamabobs/:id', (req, res) => {
 
 
 // Clients
+const clients = [
+    {id: 1, name:"tester", email: "tester@gmail.com"}
+]
 
 app.get('/clients', (req, res) => {res.send(clients)})
 
