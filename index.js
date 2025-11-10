@@ -11,7 +11,40 @@ const thingamabobs = [
     {id: 3, name: "sapakas", price: 2000}
 ]
 
+const displayCars = [{
+    Car:{
+        carBrand:"BMW",
+        color:"Purple",
+        "Tinted windows": true,
+        wheels: 76,
+        //lisada juurde 5 erinevat andmeomadust millest vähemalt, üks on tekst, teine arv ja kolmas objekt kahe omadusega
+        sunroof: false,
+        "Number of gears": 6,
+        Comforts:{
+            Seatwarmers: true,
+            "Cruise control": true,
+            "Seat fabric": "Leather"
+        }
+    }
+}]
 
+app.getElementById("app").innerHTML = 
+`
+<div id="json">
+    <h1> Car properties </h1>
+    <p>Brand of car: ${displayCars[0].Car.carBrand}</p>
+    <p>Car color: ${displayCars[0].Car.color}</p>
+    <p>Tinted windows: ${displayCars[0].Car["Tinted windows"]}</p>
+    <p>Wheels: ${displayCars[0].Car.wheels}</p>
+    <p>Sunroof: ${displayCars[0].Car.sunroof}</p>
+    <p>Number of gears: ${displayCars[0].Car["Number of gears"]}</p>
+    <p>Comforts: </p>
+    <p>Seatwarmers: ${displayCars[0].Car.Comforts.Seatwarmers}</p>
+    <p>Seatwarmers: ${displayCars[0].Car.Comforts["Cruise control"]}</p>
+    <p>Seatwarmers: ${displayCars[0].Car.Comforts["Seat fabric"]}</p>
+
+</div>
+`;
 
 app.get('/thingamabobs', (req, res) => {res.send(thingamabobs)})
 
